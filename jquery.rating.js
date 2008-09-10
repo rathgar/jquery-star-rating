@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v2.4 - 2008-08-13 ###
+ ### jQuery Star Rating Plugin v2.5 - 2008-09-10 ###
  * http://www.fyneworks.com/ - diego@fyneworks.com
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -108,10 +108,9 @@
 			// Things to do with the first element...
 			if(i == 0){
 				// Create value element (disabled if readOnly)
-				$.rating.groups[n].valueElem = $('<input type="hidden" name="' + n + '" value=""' + (settings.readOnly ? ' disabled="disabled"' : '') + '>');
+				$.rating.groups[n].valueElem = $('<input type="hidden" name="' + n + '" value=""' + (settings.readOnly ? ' disabled="disabled"' : '') + '/>');
 				// Insert value element into form
 				$(this).before($.rating.groups[n].valueElem);
-				//
 				
 				if($.rating.groups[n].readOnly || settings.required){
 					// DO NOT display 'cancel' button
@@ -150,13 +149,11 @@
 			$(eStar).addClass('star_group_'+n);
 			
 			// readOnly?
-			if($.rating.groups[n].readOnly){
+			if($.rating.groups[n].readOnly)//{ //save a byte!
 				// Mark star as readOnly so user can customize display
-				$(eStar)
-				.addClass('star_readonly');
-				//alert([this.name,this.value,this.checked].join('\n'));
-			}
-			else{
+				$(eStar).addClass('star_readonly');
+			//}  //save a byte!
+			else//{ //save a byte!
 				$(eStar)
 				// Enable hover css effects
 				.addClass('star_live')
@@ -164,7 +161,7 @@
 				.mouseover(function(){ $.rating.event.drain(n, this, settings); $.rating.event.fill(n, this, settings, 'hover'); })
 				.mouseout(function(){ $.rating.event.drain(n, this, settings); $.rating.event.reset(n, this, settings); })
 				.click(function(){ $.rating.event.click(n, this, settings); });
-			};
+			//}; //save a byte!
 			
 			////if(window.console) console.log(['###', n, this.checked, $.rating.groups[n].initial]);
 			if(this.checked) $.rating.groups[n].current = eStar;

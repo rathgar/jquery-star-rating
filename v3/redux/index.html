@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<title>jQuery Star Rating Super Interface!</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="jquery.rating.js"></script>
+    <script type="text/javascript">
+        jQuery(function(){
+            jQuery('form.rating').rating().animate({opacity: 'show'}, 2000);
+        });
+    </script>
+
+    <style type="text/css">
+    body {
+        font-family: tahoma;
+        font-size: .9em;
+    }
+    p {
+        width: 600px;
+    }
+    form {
+        width: 600px;
+        padding: 1em;
+        border: 1px solid #ccc;
+    }
+    pre {
+        width: 600px;
+        padding: 1em;
+        border: 1px dashed #ccc;
+        background: #eee;
+    }
+    .rating {
+        cursor: pointer;
+        margin: 2em;
+        clear: both;
+        display: block;
+        width: 100px;
+    }
+    .rating:after {
+        content: '.';
+        display: block;
+        height: 0;
+        width: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    .cancel,
+    .star {
+        float: left;
+        width: 17px;
+        height: 15px;
+        overflow: hidden;
+        text-indent: -999em;
+        cursor: pointer;
+    }
+
+    div.done, div.done a {
+      cursor: default;
+    }
+
+    .star,
+    .star a {background: url(star.gif) no-repeat 0 0px;}
+
+    .star a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-position: 0 0px;
+    }
+
+    div.rating div.on a {
+        background-position: 0 -16px;
+    }
+	div.rating div.hover a {
+		background-position: 0 -32px;
+	}
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<h1>jQuery Star Rating Plugin <small>beta ;)</small></h1>
+<p>Here is my quick and dirty re-creation of a star rating plugin. This is a fully degradable plugin that creates the Star Rating interface based on a simple form structure. I would love to hear your suggestions on how this could be made better. Feel free to contact me wil[dot]stuckey[at]gmail[dot]com, thanks!</p>
+<p><strong>Update: 11-11-06</strong></p>
+<p>I recently added support for keyboard navigation and included the IE6 background flicker fix</p>
+
+<h2>The Form</h2>
+<pre>
+
+&lt;form class="rating" title="Average Rating: 3.4" action="rating.php"&gt;
+    &lt;label for="r1" class="avg"&gt;Rate Me!&lt;/label&gt;
+    &lt;select id="r1"&gt;
+        &lt;option value="0"&gt;0&lt;/option&gt;
+
+        &lt;option value="1"&gt;1&lt;/option&gt;
+
+        &lt;option value="2"&gt;2&lt;/option&gt;
+        &lt;option value="3"&gt;3&lt;/option&gt;
+        &lt;option value="4"&gt;4&lt;/option&gt;
+
+        &lt;option value="5"&gt;5&lt;/option&gt;
+
+    &lt;/select&gt;
+    &lt;input type="button" value="Submit Rating"&gt;
+&lt;/form&gt;
+</pre>
+<p>Which looks like this without javascript:</p>
+
+<form title="Average Rating: 3.4" action="rating.php">
+    <label for="r1" class="avg">Rate Me!</label>
+    <select id="r1">
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+
+        <option value="5">5</option>
+
+    </select>
+    <input type="button" value="Submit Rating">
+</form>
+<h2>The JavaScript</h2>
+<pre>
+jQuery(function(){
+    jQuery('form.rating').rating();
+});
+</pre>
+<h2>The Demo</h2>
+<form class="rating" title="Average Rating: 3.4" action="rating.php">
+
+    <label for="r1" class="avg">Rate Me!</label>
+    <select id="r1">
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+
+        <option value="5">5</option>
+
+    </select>
+    <input type="button" value="Submit Rating">
+</form>
+
+
+<form class="rating" title="Average Rating: 1.7" action="rating.php">
+    <label for="r2" class="avg">Rate Me!</label>
+    <select id="r2">
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <input type="button" value="Submit Rating">
+</form>
+
+<h2>The Source</h2>
+<p>Check out the source here:</p>
+<p><a href="js/jquery.rating.js">jQuery Rating Plugin</a></p>
+<p>Comments and feedback welcome.</p>
+<p>-Wil</p>
+</body>
+</html>

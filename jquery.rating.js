@@ -20,6 +20,10 @@
 ;if(window.jQuery) (function($){
 /*# AVOID COLLISIONS #*/
 	
+	// IE6 Background Image Fix
+	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true)} catch(e) { }
+	// Thanks to http://www.visualjquery.com/rating/rating_redux.html
+	
 	// default settings
 	$.rating = {
 		cancel: 'Cancel Rating',   // advisory title for the 'cancel' link

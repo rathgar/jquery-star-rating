@@ -971,12 +971,12 @@ jQuery.fn = jQuery.prototype = {
 	 * filter(String) is used internally, therefore all rules that apply there
 	 * apply here, too.
 	 *
-	 * @example $("input[@type='checkbox']").parent().is("form")
+	 * @example $("input[type='checkbox']").parent().is("form")
 	 * @before <form><input type="checkbox" /></form>
 	 * @result true
 	 * @desc Returns true, because the parent of the input is a form element
 	 * 
-	 * @example $("input[@type='checkbox']").parent().is("form")
+	 * @example $("input[type='checkbox']").parent().is("form")
 	 * @before <form><p><input type="checkbox" /></p></form>
 	 * @result false
 	 * @desc Returns false, because the parent of the input is a p element
@@ -1093,8 +1093,8 @@ jQuery.fn = jQuery.prototype = {
  *     return this.each(function() { this.checked = false; });
  *   }
  * });
- * $("input[@type=checkbox]").check();
- * $("input[@type=radio]").uncheck();
+ * $("input[type=checkbox]").check();
+ * $("input[type=radio]").uncheck();
  * @desc Adds two plugin methods.
  *
  * @example jQuery.extend({
@@ -2228,7 +2228,7 @@ jQuery.extend({
 	
 	// The regular expressions that power the parsing engine
 	parse: [
-		// Match: [@value='test'], [@foo]
+		// Match: [value='test'], [foo]
 		"\\[ *(@)S *([!*$^=]*) *('?\"?)(.*?)\\4 *\\]",
 
 		// Match: [div], [div p]
@@ -4127,7 +4127,7 @@ jQuery.fn.extend({
 	 * provided by the form plugin. It also takes multiple-selects 
 	 * into account, while this method recognizes only a single option.
 	 *
-	 * @example $("input[@type=text]").serialize();
+	 * @example $("input[type=text]").serialize();
 	 * @before <input type='text' name='name' value='John'/>
 	 * <input type='text' name='location' value='Boston'/>
 	 * @after name=John&location=Boston

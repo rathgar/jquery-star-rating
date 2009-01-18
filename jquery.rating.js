@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v2.5 - 2008-09-10 ###
+ ### jQuery Star Rating Plugin v2.6 - 2009-01-17 ###
  * http://www.fyneworks.com/ - diego@fyneworks.com
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -197,7 +197,7 @@
 		The plugin will attach itself to file inputs
 		with the class 'multi' when the page loads
 	*/
-	$(function(){ $('input[@type=radio].star').rating(); });
+	$(function(){ $('input[type=radio].star').rating(); });
 	
 	
 	

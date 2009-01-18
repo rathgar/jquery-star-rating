@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head> 
- <title>jQuery Star Rating Plugin v2.5 (2008-09-10)</title>
+ <title>jQuery Star Rating Plugin v2.6 (2009-01-17)</title>
  <!--// documentation resources //-->
-	<script src="jquery-1.2.6.js" type="text/javascript"></script>
+	<script src="jquery-1.3.js" type="text/javascript"></script>
 	<script src="documentation.js" type="text/javascript"></script>
  <link type="text/css" rel="stylesheet" href="documentation.css"/>
  <!--// code-highlighting //-->
@@ -37,7 +37,7 @@
     <td valign="middle">
      <h1>jQuery Star Rating Plugin</h1>
      <span style="cursor:help; background:#C00; padding:2px; color:#FFF;" title="Current Version">
-      v<strong>2.5</strong>
+      v<strong>2.6</strong>
      </span>
     </td>
     <td valign="middle" width="450" align="right">
@@ -86,11 +86,11 @@
   
   <div id="documentation" class="tabs">
    <ul class="Clear">
-    <li><a href="#tab-Overview" id="btn-Overview">Overview</a></li>
-    <li><a href="#tab-Advanced" id="btn-Advanced">Advanced</a></li>
-    <li><a href="#tab-Testing" id="btn-Testing">Testing</a></li>
+    <li><a href="#tab-Overview" id="btn-Overview">Usage</a></li>
+    <li><a href="#tab-Testing" id="btn-Testing">Demos</a></li>
     <li><a href="#tab-Database" id="btn-Database">Database Integration</a></li>
-    <li><a href="#tab-Download" id="btn-Download">Download &amp; Support</a></li>
+    <li><a href="#tab-Download" id="btn-Download">Download</a></li>
+    <li><a href="#tab-Support" id="btn-Support">Support</a></li>
     <li><a href="#tab-License" id="btn-License">License</a></li>
     <li><a href="#tab-Background" id="btn-Background">Background</a></li>
    </ul><!--// tabs //-->
@@ -199,10 +199,8 @@
       </td>
      </tr>
     </table>
-   </div><!--// tab-Overview //-->
-   
-   <div id="tab-Advanced">
-    <h2>Advanced Usage</h2>
+    
+    <h2>What about split stars and 'half ratings'???</h2>
     <p>
      Use metadata plugin to pass advanced settings to the plugin via the class property.
     </p>
@@ -610,7 +608,7 @@ $(function(){
     <input class="star {split:2}" type="radio" name="test-4-rating-3" value="1.0"/>
     <input class="star {split:2}" type="radio" name="test-4-rating-3" value="1.5"/>
     <input class="star {split:2}" type="radio" name="test-4-rating-3" value="2.0"/>
-    <input class="star {split:2}" type="radio" name="test-4-rating-3" value="2.5"/>
+    <input class="star {split:2}" type="radio" name="test-4-rating-3" value="2.6"/>
     <input class="star {split:2}" type="radio" name="test-4-rating-3" value="3.0"/>
     <input class="star {split:2}" type="radio" name="test-4-rating-3" value="3.5" checked="checked"/>
     <input class="star {split:2}" type="radio" name="test-4-rating-3" value="4.0"/>
@@ -740,21 +738,105 @@ $(function(){
    
    <div id="tab-Download">
     <h2>Download</h2>
+    <p>
+     This project (and all related files) can also be accessed via its
+     <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/">Google Code Project Page</a>.
+    </p>
     <table cellspacing="5">
      <tr>
-      <td valign="top" align="right">Package:</td>
+      <td valign="top" align="right">Full Package:</td>
+      <td valign="top">
+       <big>
+        <img src="/@/download.gif" style="margin:0 5px 5px 0; float:left;">
+        v<strong>2.6</strong>
+        <a href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/star-rating.zip"><strong>star-rating.zip</strong></a>
+       </big>
+      </td>
+     </tr>
+     <tr>
+      <td valign="top" align="right">Core Files:</td>
+      <td valign="top">
+       These are the individual required files (<span class="Warning">already included in the zip package above</span>)
+       <ul>
+        <li><a href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.js"><strong>jquery.rating.js</strong></a>
+        (packed version: <a href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.pack.js">jquery.rating.pack.js</a>)</li>
+        <li><a target="_blank" href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/jquery.rating.css"><strong>jQuery.Rating.css</strong></a></li>
+        <li><a target="_blank" href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/delete.gif"><strong>delete.gif</strong></a></li>
+        <li><a target="_blank" href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/star.gif"><strong>star.gif</strong></a></li>
+       </ul>
+      </td>
+     </tr>
+     <tr>
+      <td valign="top" align="right">jQuery:</td>
+      <td valign="top">
+       <a target="_blank" href="http://jquery.com/src/jquery-latest.js">jquery-latest.js</a> (<a target="_blank" href="http://www.jquery.com/">see jQuery.com</a>)
+      </td>
+     </tr>
+    </table>
+    
+    <h2>Related Downloads</h2>
+    <table cellspacing="5">
+     <tr>
+      <td valign="top" align="right">Related:</td>
+      <td valign="top">
+       <a target="_blank" href="http://plugins.jquery.com/project/metadata/">Metadata plugin</a> - Used to retrieve inline configuration from class variable
+       <br/>
+       <a target="_blank" href="http://www.malsup.com/jquery/form/">Form plugin</a> - Used to submit forms via ajax
+      </td>
+     </tr>
+    </table>
+    
+    <h2>SVN Repository</h2>
+    <p>
+     If you're a major geek or if you really really want to stay up-to-date with
+     with future updates of this plugin, go ahead and plug yourself to the
+     <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/">SVN Repository</a>
+     on the official
+     <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/">Google Code Project Page</a>.
+    </p>
+    <table cellspacing="5">
+     <tr>
+      <td valign="top" align="right">SVN Checkout:</td>
+      <td valign="top">
+       <img src="/@/files/js.gif" style="margin:0 5px 5px 0; float:left;">
+       <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/source/checkout/"><strong>SVN Checkout Instructions</strong></a>
+      </td>
+     </tr>
+     <tr>
+      <td valign="top" align="right">Browse Online:</td>
+      <td valign="top">
+       <img src="/@/folder.gif" style="margin:0 5px 5px 0; float:left;">
+       <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/source/browse/"><strong>Browse Source</strong></a>
+      </td>
+     </tr>
+    </table>
+    
+    <h2>Alternative Download - From this website</h2>
+    <p>
+     Just in case it's the end of the world and the Google Code site becomes unavailable,
+     the project files can also be downloaded form this site.
+     <br/>
+     However, please note that this site is updated periodically whereas the Google Code
+     project is kept up-to-date almost instantaneously. If you'd like the very latest
+     version of this plugin
+     <strong>you are advised to use the links above and download the files from Google Code</strong>
+      - this will ensure the files you download have the very latest features and bug fixes.
+    </p>
+    <table cellspacing="5">
+     <tr>
+      <td valign="top" align="right">Full Package:</td>
       <td valign="top">
        <img src="/@/download.gif" style="margin:0 5px 5px 0; float:left;">
-       v<strong>2.5</strong>
+       v<strong>2.6</strong>
        <a href="star-rating.zip"><strong>star-rating.zip</strong></a>
       </td>
      </tr>
      <tr>
-      <td valign="top" align="right">Files:</td>
+      <td valign="top" align="right">Core Files:</td>
       <td valign="top">
        These are the individual required files (<span class="Warning">already included in the zip package above</span>)
        <ul>
-        <li><a target="_blank" href="jquery.rating.js"><strong>jQuery.Rating.js</strong></a> (<a target="_blank" href="jquery.rating.pack.js">packed version</a>)</li>
+        <li><a target="_blank" href="jquery.rating.js"><strong>jquery.rating.js</strong></a> (packed version: <a href="jquery.rating.pack.js">jquery.rating.pack.js</a>)</li>
         <li><a target="_blank" href="jquery.rating.css"><strong>jQuery.Rating.css</strong></a></li>
         <li><a target="_blank" href="delete.gif"><strong>delete.gif</strong></a></li>
         <li><a target="_blank" href="star.gif"><strong>star.gif</strong></a></li>
@@ -767,33 +849,49 @@ $(function(){
        <a target="_blank" href="http://jquery.com/src/jquery-latest.js">jquery-latest.js</a> (<a target="_blank" href="http://www.jquery.com/">see jQuery.com</a>)
       </td>
      </tr>
-     <tr>
-      <td valign="top" align="right">Related:</td>
-      <td valign="top">
-       <a target="_blank" href="http://plugins.jquery.com/project/metadata/">Metadata plugin</a> - Used to retrieve inline configuration from class variable
-       <br/>
-       <a target="_blank" href="http://www.malsup.com/jquery/blockUI/">blockUI plugin</a> - Used to show pretty error messages
-       <br/>
-       <a target="_blank" href="http://www.malsup.com/jquery/form/">Form plugin</a> - Used to submit forms via ajax
-      </td>
-     </tr>
     </table>
+    
+   </div><!--// tab-Download //-->
+   
+   <div id="tab-Support">
     
     <h2>Support</h2>
     <p>
-     Quick Support Links: <a target="_blank" href="http://groups.google.com/group/jquery-en" class="B Yes">Help me!</a>
-     | <a target="_blank" href="http://plugins.jquery.com/node/add/project_issue/MultipleFriendlyStarRating/bug">Report a bug</a>
-     | <a target="_blank" href="http://plugins.jquery.com/node/add/project_issue/MultipleFriendlyStarRating/feature">Suggest new feature</a>
+     Quick Support Links: <a href="http://groups.google.com/group/jquery-en" class="B Yes">Help me!</a>
+     | <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/issues/entry">Report a bug</a>
+     | <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/issues/entry">Suggest new feature</a>
+<!--//
+     OLD: Forget Trac - Let's use Google Code!
+     | <a target="_blank" href="http://plugins.jquery.com/node/add/project_issue/MultiFile/bug">Report a bug</a>
+     | <a target="_blank" href="http://plugins.jquery.com/node/add/project_issue/MultiFile/feature">Suggest new feature</a>
+//-->
     </p>
     <p>
      Support for this plugin is available through the <a target="_blank" href="http://jquery.com/discuss/" class="external">jQuery Mailing List</a>.
      This is a very active list to which many jQuery developers and users subscribe.
      <br/>
      Access to the jQuery Mailing List is also available through
-     <a target="_blank" href="http://www.nabble.com/JQuery-f15494.html" class="external">Nabble Forums</a>, the
-     <a target="_blank" href="http://groups.google.com/group/jquery-en" class="external">jQuery Google Group</a> and the
-     <a target="_blank" href="http://plugins.jquery.com/project/MultipleFriendlyStarRating/" class="external">official project page</a>.
+     <a target="_blank" href="http://www.nabble.com/JQuery-f15494.html" class="external">Nabble Forums</a>
+     and the
+     <a target="_blank" href="http://groups.google.com/group/jquery-en" class="external">jQuery Google Group</a>.
     </p>
+    <p>
+     <strong class="Warning">WARNING:</strong>
+     Support will not be provided via the <a href="http://plugins.jquery.com/">jQuery Plugins</a>
+     website.
+     If you need help, please direct your questions to the
+     <a target="_blank" href="http://groups.google.com/group/jquery-en" class="external">jQuery Mailing List</a>
+     or 
+     <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/issues/entry">report an issue</a>
+     on the official
+     <a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/">Google Code Project Page</a>.
+    </p>
+    
+    <h2>Official Links</h2>
+    <ul>
+     <li><a target="_blank" href="http://plugins.jquery.com/project/MultipleFriendlyStarRating/" class="external">jQuery Plugin Project Page</a></li>
+     <li><a target="_blank" href="http://code.google.com/p/jquery-star-rating-plugin/">Google Code Project Page</a></li>
+    </ul>
     
     <h2>Credit</h2>
     <ul>

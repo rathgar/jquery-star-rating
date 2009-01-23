@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v2.6 - 2009-01-17 ###
+ ### jQuery Star Rating Plugin v2.61 - 2009-01-23 ###
  * http://www.fyneworks.com/ - diego@fyneworks.com
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -100,7 +100,7 @@
 			
 			// Generate internal control ID
 			// - ignore square brackets in element names
-			var n = (this.name || 'unnamed-rating').replace(/\[|\]/, "_");
+			var n = (this.name || 'unnamed-rating').replace(/\[|\]+/g, "_");
    
 			// Grouping
 			if(!$.rating.groups[n]) $.rating.groups[n] = {count: 0};

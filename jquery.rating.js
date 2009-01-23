@@ -1,17 +1,17 @@
 /*
  ### jQuery Star Rating Plugin v2.61 - 2009-01-23 ###
- * http://www.fyneworks.com/ - diego@fyneworks.com
- * Dual licensed under the MIT and GPL licenses:
+ * Home: http://www.fyneworks.com/jquery/star-rating/
+ * Code: http://code.google.com/p/jquery-star-rating-plugin/
+ *
+	* Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  ###
- Project: http://plugins.jquery.com/project/MultipleFriendlyStarRating
- Website: http://www.fyneworks.com/jquery/star-rating/
 *//*
 	Based on http://www.phpletter.com/Demo/Jquery-Star-Rating-Plugin/
  Original comments:
 	This is hacked version of star rating created by <a href="http://php.scripts.psu.edu/rja171/widgets/rating.php">Ritesh Agrawal</a>
-	It thansform a set of radio type input elements to star rating type and remain the radio element name and value,
+	It transforms a set of radio type input elements to star rating type and remain the radio element name and value,
 	so could be integrated with your form. It acts as a normal radio button.
 	modified by : Logan Cai (cailongqun[at]yahoo.com.cn)
 */

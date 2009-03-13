@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v2.62 - 2009-03-12 ###
+ ### jQuery Star Rating Plugin v2.63 - 2009-03-13 ###
  * Home: http://www.fyneworks.com/jquery/star-rating/
  * Code: http://code.google.com/p/jquery-star-rating-plugin/
  *
@@ -46,35 +46,35 @@
 		group: {},// holds details of a group of elements which form a star rating widget
 		calls: 0,// differentiates groups of the same name to be created on separate plugin calls
 		event: {// plugin event handlers
-			fill: function(n, el, settings, state){ // fill to the current mouse position.
-				//if(window.console) console.log(['fill', $(el), $(el).prevAll('.star_group_'+n), arguments]);
-				this.drain(n);
-				$(el).prevAll('.star_group_'+n).andSelf().addClass('star_'+(state || 'hover'));
+			fill: function(gid, el, settings, state){ // fill to the current mouse position.
+				//if(window.console) console.log(['fill', $(el), $(el).prevAll('.star_group_'+gid), arguments]);
+				this.drain(gid);
+				$(el).prevAll('.star_group_'+gid).andSelf().addClass('star_'+(state || 'hover'));
 				// focus handler, as requested by focusdigital.co.uk
 				var lnk = $(el).children('a'); val = lnk.text();
-				if(settings.focus) settings.focus.apply($.rating.group[n].valueElem[0], [val, lnk[0]]);
+				if(settings.focus) settings.focus.apply($.rating.group[gid].valueElem[0], [val, lnk[0]]);
 			},
-			drain: function(n, el, settings) { // drain all the stars.
-				//if(window.console) console.log(['drain', $(el), $(el).prevAll('.star_group_'+n), arguments]);
-				$.rating.group[n].valueElem.siblings('.star_group_'+n).removeClass('star_on').removeClass('star_hover');
+			drain: function(gid, el, settings) { // drain all the stars.
+				//if(window.console) console.log(['drain', $(el), $(el).prevAll('.star_group_'+gid), arguments]);
+				$.rating.group[gid].valueElem.siblings('.star_group_'+gid).removeClass('star_on').removeClass('star_hover');
 			},
-			reset: function(n, el, settings){ // Reset the stars to the default index.
-				if(!$($.rating.group[n].current).is('.cancel'))
-					$($.rating.group[n].current).prevAll('.star_group_'+n).andSelf().addClass('star_on');
+			reset: function(gid, el, settings){ // Reset the stars to the default index.
+				if(!$($.rating.group[gid].current).is('.cancel'))
+					$($.rating.group[gid].current).prevAll('.star_group_'+gid).andSelf().addClass('star_on');
 				// blur handler, as requested by focusdigital.co.uk
 				var lnk = $(el).children('a'); val = lnk.text();
-				if(settings.blur) settings.blur.apply($.rating.group[n].valueElem[0], [val, lnk[0]]);
+				if(settings.blur) settings.blur.apply($.rating.group[gid].valueElem[0], [val, lnk[0]]);
 			},
-			click: function(n, el, settings){ // Selected a star or cancelled
-				$.rating.group[n].current = el;
+			click: function(gid, el, settings){ // Selected a star or cancelled
+				$.rating.group[gid].current = el;
 				var lnk = $(el).children('a'); val = lnk.text();
 				// Set value
-				$.rating.group[n].valueElem.val(val);
+				$.rating.group[gid].valueElem.val(val);
 				// Update display
-				$.rating.event.drain(n, el, settings);
-				$.rating.event.reset(n, el, settings);
+				$.rating.event.drain(gid, el, settings);
+				$.rating.event.reset(gid, el, settings);
 				// click callback, as requested here: http://plugins.jquery.com/node/1655
-				if(settings.callback) settings.callback.apply($.rating.group[n].valueElem[0], [val, lnk[0]]);
+				if(settings.callback) settings.callback.apply($.rating.group[gid].valueElem[0], [val, lnk[0]]);
 			}      
 		}// plugin events
 	};
@@ -103,36 +103,36 @@
 			
 			// Generate internal control ID
 			// - ignore square brackets in element names
-			var n = (this.name || 'unnamed-rating').replace(/\[|\]+/g, "_");
+			var eid = (this.name || 'unnamed-rating').replace(/\[|\]+/g, "_");
 			
 			// differentiate groups of the same name on separate plugin calls
 			// SEE: http://code.google.com/p/jquery-star-rating-plugin/issues/detail?id=5
-			n = $.rating.calls +'_'+ n;
+			var gid = $.rating.calls +'_'+ eid;
 			
 			// Grouping
-			if(!$.rating.group[n]) $.rating.group[n] = {count: 0};
-			i = $.rating.group[n].count; $.rating.group[n].count++;
+			if(!$.rating.group[gid]) $.rating.group[gid] = {count: 0};
+			i = $.rating.group[gid].count; $.rating.group[gid].count++;
 			
 			// Accept readOnly setting from 'disabled' property
-			$.rating.group[n].readOnly = $.rating.group[n].readOnly || settings.readOnly || $(this).attr('disabled');
+			$.rating.group[gid].readOnly = $.rating.group[gid].readOnly || settings.readOnly || $(this).attr('disabled');
 			
 			// Things to do with the first element...
 			if(i == 0){
 				// Create value element (disabled if readOnly)
-				$.rating.group[n].valueElem = $('<input type="hidden" name="' + n + '" value=""' + (settings.readOnly ? ' disabled="disabled"' : '') + '/>');
+				$.rating.group[gid].valueElem = $('<input type="hidden" name="' + eid + '" value=""' + (settings.readOnly ? ' disabled="disabled"' : '') + '/>');
 				// Insert value element into form
-				$(this).before($.rating.group[n].valueElem);
+				$(this).before($.rating.group[gid].valueElem);
 				
-				if($.rating.group[n].readOnly || settings.required){
+				if($.rating.group[gid].readOnly || settings.required){
 					// DO NOT display 'cancel' button
 				}
 				else{
 					// Display 'cancel' button
 					$(this).before(
 						$('<div class="cancel"><a title="' + settings.cancel + '">' + settings.cancelValue + '</a></div>')
-						.mouseover(function(){ $.rating.event.drain(n, this, settings); $(this).addClass('star_on'); })
-						.mouseout(function(){ $.rating.event.reset(n, this, settings); $(this).removeClass('star_on'); })
-						.click(function(){ $.rating.event.click(n, this, settings); })
+						.mouseover(function(){ $.rating.event.drain(gid, this, settings); $(this).addClass('star_on'); })
+						.mouseout(function(){ $.rating.event.reset(gid, this, settings); $(this).removeClass('star_on'); })
+						.click(function(){ $.rating.event.click(gid, this, settings); })
 					);
 				}
 			}; // if (i == 0) (first element)
@@ -157,10 +157,10 @@
 			};
 			
 			// Remember group name so controls within the same container don't get mixed up
-			$(eStar).addClass('star_group_'+n);
+			$(eStar).addClass('star_group_'+gid);
 			
 			// readOnly?
-			if($.rating.group[n].readOnly)//{ //save a byte!
+			if($.rating.group[gid].readOnly)//{ //save a byte!
 				// Mark star as readOnly so user can customize display
 				$(eStar).addClass('star_readonly');
 			//}  //save a byte!
@@ -169,29 +169,29 @@
 				// Enable hover css effects
 				.addClass('star_live')
 				// Attach mouse events
-				.mouseover(function(){ $.rating.event.drain(n, this, settings); $.rating.event.fill(n, this, settings, 'hover'); })
-				.mouseout(function(){ $.rating.event.drain(n, this, settings); $.rating.event.reset(n, this, settings); })
-				.click(function(){ $.rating.event.click(n, this, settings); });
+				.mouseover(function(){ $.rating.event.drain(gid, this, settings); $.rating.event.fill(gid, this, settings, 'hover'); })
+				.mouseout(function(){ $.rating.event.drain(gid, this, settings); $.rating.event.reset(gid, this, settings); })
+				.click(function(){ $.rating.event.click(gid, this, settings); });
 			//}; //save a byte!
 			
-			////if(window.console) console.log(['###', n, this.checked, $.rating.group[n].initial]);
-			if(this.checked) $.rating.group[n].current = eStar;
+			////if(window.console) console.log(['###', gid, this.checked, $.rating.group[gid].initial]);
+			if(this.checked) $.rating.group[gid].current = eStar;
 			
 			// remove this checkbox - values will be stored in a hidden field
 			$(this).remove();
 			
 			// reset display if last element
-			if(i + 1 == this.length) $.rating.event.reset(n, this, settings);
+			if(i + 1 == this.length) $.rating.event.reset(gid, this, settings);
 		
 		}); // each element
 			
 		// initialize groups...
-		for(n in $.rating.group)//{ not needed, save a byte!
-			(function(c, v, n){ if(!c) return;
-				$.rating.event.fill(n, c, instanceSettings || {}, 'on');
+		for(gid in $.rating.group)//{ not needed, save a byte!
+			(function(c, v, gid){ if(!c) return;
+				$.rating.event.fill(gid, c, instanceSettings || {}, 'on');
 				$(v).val($(c).children('a').text());
 			})
-			($.rating.group[n].current, $.rating.group[n].valueElem, n);
+			($.rating.group[gid].current, $.rating.group[gid].valueElem, gid);
 		//}; not needed, save a byte!
 		
 		return this; // don't break the chain...

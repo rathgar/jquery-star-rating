@@ -1,5 +1,5 @@
 *{ font-family:Arial, Helvetica, sans-serif; margin:0; padding:0; outline:none; }
-form{ padding:0!important; margin:0!important; }
+form{ padding:0/*!important*/; margin:0/*!important*/; }
 img{ border:0; }
 ul,ol{ padding:2px 5px; margin:0 0 0 20px; }
 

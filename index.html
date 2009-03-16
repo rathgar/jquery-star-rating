@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head> 
- <title>jQuery Star Rating Plugin v2.63 (2009-03-13)</title>
+ <title>jQuery Star Rating Plugin v3.00 (2009-03-16)</title>
  <!--// documentation resources //-->
-	<script src="jquery-1.31.js" type="text/javascript"></script>
+	<script src="jquery.js" type="text/javascript"></script>
 	<script src="documentation.js" type="text/javascript"></script>
- <link type="text/css" rel="stylesheet" href="documentation.css"/>
+ <link href="documentation.css" type="text/css" rel="stylesheet"/>
  <!--// code-highlighting //-->
 	<script type="text/javaScript" src="/jquery/project/chili/jquery.chili-2.0.js"></script> 
 	<script type="text/javaScript" src="/jquery/project/chili-toolbar/jquery.chili-toolbar.pack.js"></script> 
@@ -37,7 +37,7 @@
     <td valign="middle">
      <h1>jQuery Star Rating Plugin</h1>
      <span style="cursor:help; background:#C00; padding:2px; color:#FFF;" title="Current Version">
-      v<strong>2.63</strong>
+      v<strong>3.00</strong>
      </span>
     </td>
     <td valign="middle" width="450" align="right">
@@ -86,8 +86,9 @@
   
   <div id="documentation" class="tabs">
    <ul class="Clear">
-    <li><a href="#tab-Overview" id="btn-Overview">Usage</a></li>
+    <li><a href="#tab-Overview" id="btn-Overview">Intro</a></li>
     <li><a href="#tab-Testing" id="btn-Testing">Demos</a></li>
+    <li><a href="#tab-API" id="btn-API">API</a></li>
     <li><a href="#tab-Database" id="btn-Database">Database Integration</a></li>
     <li><a href="#tab-Download" id="btn-Download">Download</a></li>
     <li><a href="#tab-Support" id="btn-Support">Support</a></li>
@@ -288,7 +289,7 @@ $(function(){
 
 <div class="Clear">&nbsp;</div>
 <form id="form1">
-<strong>Test 1</strong> - A blank form
+<strong style='font-size:150%'>Test 1</strong> - A blank form
 <table width="100%" cellspacing="10"> <tr>
   <td valign="top" width="">
    <table width="100%">
@@ -373,7 +374,7 @@ $(function(){
 <div class="Clear">&nbsp;</div><div class="Clear">&nbsp;</div>
 
 <form id="form2">
-<strong>Test 2</strong> - With defaults ('checked')
+<strong style='font-size:150%'>Test 2</strong> - With defaults ('checked')
 <table width="100%" cellspacing="10"> <tr>
   <td valign="top" width="">
    <table width="100%">
@@ -477,7 +478,7 @@ $(function(){
  });
 });
 </script>
-<strong>Test 3-A</strong> - With callback
+<strong style='font-size:150%'>Test 3-A</strong> - With callback
 <table width="100%" cellspacing="10"> <tr>
   <td valign="top" width="">
 <div class="Clear">
@@ -528,7 +529,7 @@ $(function(){
 });
 </script>
 <form id="form3B">
-<strong>Test 3-B</strong> - With hover effects
+<strong style='font-size:150%'>Test 3-B</strong> - With hover effects
 <table width="100%" cellspacing="10"> <tr>
   <td valign="top" width="">
 <div class="Clear">
@@ -572,7 +573,7 @@ $(function(){
 <div class="Clear">&nbsp;</div><div class="Clear">&nbsp;</div>
 
 <form id="form4">
-<strong>Test 4</strong> - <strong>Half Stars</strong> and <strong>Split Stars</strong>
+<strong style='font-size:150%'>Test 4</strong> - <strong>Half Stars</strong> and <strong>Split Stars</strong>
 <table width="100%" cellspacing="10"> <tr>
   <td valign="top" width="">
    <table width="100%">
@@ -697,6 +698,124 @@ $(function(){
 </form>
    </div><!--// tab-Testing //-->
    
+   <div id="tab-API">
+    <h2>API</h2>
+    <p class="B Yes">NEW to v3</p>
+    
+    <p>API methods can be invoked this this:</p>
+    <div><pre class="code"><code class="js">$(selector).rating(
+ 'method', // method name
+ [] // method arguments (not required)
+);</code></pre></div>
+    
+    <br/><br/><br/>
+    
+    <h3>$().rating('select', index / value)</h3>
+    <p>
+     Use this method to set the value (and display) of the star rating control
+     via javascript. It accepts the index of the star you want to select (0 based)
+     or its value (which must be passed as a string.
+    </p>
+    <p>
+     Example: (values A/B/C/D/E)
+    </p>
+    <form name="api-select">
+     <input type="radio" class="star" name="api-select-test" value="A"/>
+     <input type="radio" class="star" name="api-select-test" value="B"/>
+     <input type="radio" class="star" name="api-select-test" value="C"/>
+     <input type="radio" class="star" name="api-select-test" value="D"/>
+     <input type="radio" class="star" name="api-select-test" value="E"/>
+     <input type="button" value="Submit &raquo;" onclick="
+      $(this).next().html( $(this.form).serialize() );
+     "/>
+     <span></span>
+     <br/>
+     By index:
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',0)" value="0"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',1)" value="1"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',2)" value="2"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',3)" value="3"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',4)" value="4"/>
+     eg.: $('input').rating('select',3)
+     <br/>
+     By value:
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="A"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="B"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="C"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="D"/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="E"/>
+     eg.: $('input').rating('select','C')
+    </form>
+    
+    <br/><br/><br/>
+    
+    <h3>$().rating('readOnly', true / false)</h3>
+    <p>
+     Use this method to set the value (and display) of the star rating control
+     via javascript. It accepts the index of the star you want to select (0 based)
+     or its value (which must be passed as a string.
+    </p>
+    <p>
+     Example: (values 1,2,3...10)
+    </p>
+    <form name="api-readonly">
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="1"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="2"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="3"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="4"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="5"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="6"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="7"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="8"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="9"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="10"/>
+     <input type="button" value="Submit &raquo;" onclick="
+      $(this).next().html( $(this.form).serialize() );
+     "/>
+     <span></span>
+     <br/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('readOnly',true)" value="Set readOnly = true"/>
+     eg.: $('input').rating('readOnly',true)
+     <br/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('readOnly',false)" value="Set readOnly = false"/>
+     eg.: $('input').rating('readOnly',false) or simply $('input').rating('readOnly');
+    </form>
+    
+    <br/><br/><br/>
+    
+    <h3>$().rating('disable') / $().rating('enable')</h3>
+    <p>
+     These methods bahve almost exactly as the readOnly method, however
+     they also control whether or not the select value is submitted with
+     the form.
+    </p>
+    <p>
+     Example: (values 1,2,3...10)
+    </p>
+    <form name="api-readonly">
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="1"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="2"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="3"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="4"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="5"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="6"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="7"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="8"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="9"/>
+     <input type="radio" class="star {split:2}" name="api-readonly-test" value="10"/>
+     <input type="button" value="Submit &raquo;" onclick="
+      $(this).next().html( $(this.form).serialize() );
+     "/>
+     <span></span>
+     <br/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('disable')" value="disable"/>
+     eg.: $('input').rating('disable')
+     <br/>
+     <input type="button" onclick="javascript:$('input',this.form).rating('enable')" value="enable"/>
+     eg.: $('input').rating('enable');
+    </form>
+   </div><!--// tab-API //-->
+   
    <div id="tab-Database">
     <h2>Database Integration</h2>
     <p>
@@ -748,7 +867,7 @@ $(function(){
       <td valign="top">
        <big>
         <img src="/@/download.gif" style="margin:0 5px 5px 0; float:left;">
-        v<strong>2.63</strong>
+        v<strong>3.00</strong>
         <a href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/star-rating.zip"><strong>star-rating.zip</strong></a>
        </big>
       </td>
@@ -827,7 +946,7 @@ $(function(){
       <td valign="top" align="right">Full Package:</td>
       <td valign="top">
        <img src="/@/download.gif" style="margin:0 5px 5px 0; float:left;">
-       v<strong>2.63</strong>
+       v<strong>3.00</strong>
        <a href="star-rating.zip"><strong>star-rating.zip</strong></a>
       </td>
      </tr>

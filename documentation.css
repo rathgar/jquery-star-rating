@@ -20,7 +20,7 @@ pre.code{
 }
 
 @media screen{
-	/* LAYOUT - Layer 0: sticky footer */
+	/* LAYOUT 1 - sticky footer */
 	/*ALL*/html,body,#wrap{ min-height: 100%; height: auto !important; height: 100%; }
 	/* FIXED HEADER/FOOTER:	*/
 	#roof{ height:24px; position:fixed; width:100%; z-index:9999; left:0; top:0; }
@@ -30,6 +30,7 @@ pre.code{
 	#wrap{ padding:65px 0 !IE; }
 	html > body #roof{ height:14px; }
 }
+
 
 @media debug{
 	#wrap{ background:#ffeeee;/*IE8*/ background:#eeffee;/*IE7*/ }
@@ -42,7 +43,7 @@ pre.code{
 #head{ border-width:0 0 2px 0; }
 #foot{ border-width:2px 0 0 0; padding:0 0 20px 0; }
 
-#roof{ height:25px; background:#e7e7e7; border-bottom:#AAA solid 1px; padding:5px; }
+#roof{ height:14px; background:#e7e7e7; border-bottom:#AAA solid 1px; padding:5px; }
 #roof{ color:#777; font-size:94%; }
 #roof a{ color:#00A; }
 

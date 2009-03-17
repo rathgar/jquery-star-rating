@@ -1,3 +1,0 @@
-<%
-Response.Write Request.Form
-%>

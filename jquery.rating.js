@@ -99,9 +99,13 @@
 				
 			}; // first element of group
 			
-			// insert rating option right after preview element
+			// insert rating star
 			var star = $('<div class="rating-star rater-'+ control.serial +'"><a title="' + (this.title || this.value) + '">' + this.value + '</a></div>');
 			$(this).after(star);
+			
+			// inherit attributes from input element
+			if(this.id) star.attr('id', this.id);
+			if(this.className) star.addClass(this.className);
 			
 			// Half-stars?
 			if(control.half) control.split = 2;

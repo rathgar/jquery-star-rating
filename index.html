@@ -279,7 +279,7 @@ $(function(){
 </script>
 <script>
 $(function(){
- $('form').submit(function(){
+ $('#tab-Testing form').submit(function(){
   $('.test',this).html('');
   $('input',this).each(function(){ if(this.name!='') $('.test',this.form).append(''+this.name+': '+this.value+'<br/>'); });
   return false;
@@ -380,28 +380,31 @@ $(function(){
    <table width="100%">
     <tr>
      <td valign="top" width="50%">
-<div class="Clear">
+   <div class="Clear">
     Rating 1:
     (N/M/Y, default M)
-
+   </div>
+   <div class="Clear">
     <input class="star" type="radio" name="test-2-rating-1" value="N" title="No"/>
     <input class="star" type="radio" name="test-2-rating-1" value="M" title="Maybe" checked="checked"/>
     <input class="star" type="radio" name="test-2-rating-1" value="Y" title="Yes"/>
    </div>
-   <br/>
    <div class="Clear">
     Rating 2:
     (10 - 50, default 30)
+   </div>
+   <div class="Clear">
     <input class="star" type="radio" name="test-2-rating-2" value="10"/>
     <input class="star" type="radio" name="test-2-rating-2" value="20"/>
     <input class="star" type="radio" name="test-2-rating-2" value="30" checked="checked"/>
     <input class="star" type="radio" name="test-2-rating-2" value="40"/>
     <input class="star" type="radio" name="test-2-rating-2" value="50"/>
    </div>
-   <br/>
    <div class="Clear">
     Rating 3:
     (1 - 7, default 4)
+   </div>
+   <div class="Clear">
     <input class="star" type="radio" name="test-2-rating-3" value="1"/>
     <input class="star" type="radio" name="test-2-rating-3" value="2"/>
     <input class="star" type="radio" name="test-2-rating-3" value="3"/>
@@ -415,26 +418,30 @@ $(function(){
    <div class="Clear">
     Rating 4:
     (1 - 5, default 1)
+   </div>
+   <div class="Clear">
     <input class="star" type="radio" name="test-2-rating-4" value="1" title="Worst" checked="checked"/>
     <input class="star" type="radio" name="test-2-rating-4" value="2" title="Bad"/>
     <input class="star" type="radio" name="test-2-rating-4" value="3" title="OK"/>
     <input class="star" type="radio" name="test-2-rating-4" value="4" title="Good"/>
     <input class="star" type="radio" name="test-2-rating-4" value="5" title="Best"/>
    </div>
-   <br/>
    <div class="Clear">
     Rating 5:
     (1 - 5, default 5)
+   </div>
+   <div class="Clear">
     <input class="star" type="radio" name="test-2-rating-5" value="1"/>
     <input class="star" type="radio" name="test-2-rating-5" value="2"/>
     <input class="star" type="radio" name="test-2-rating-5" value="3"/>
     <input class="star" type="radio" name="test-2-rating-5" value="4"/>
     <input class="star" type="radio" name="test-2-rating-5" value="5" checked="checked"/>
    </div>
-   <br/>
    <div class="Clear">
     Rating 6 (readonly):
     (1 - 5, default 3)
+   </div>
+   <div class="Clear">
     <input class="star" type="radio" name="test-2-rating-6" value="1" disabled="disabled"/>
     <input class="star" type="radio" name="test-2-rating-6" value="2" disabled="disabled"/>
     <input class="star" type="radio" name="test-2-rating-6" value="3" disabled="disabled" checked="checked"/>
@@ -725,25 +732,25 @@ $(function(){
      <input type="radio" class="star" name="api-select-test" value="C"/>
      <input type="radio" class="star" name="api-select-test" value="D"/>
      <input type="radio" class="star" name="api-select-test" value="E"/>
-     <input type="button" value="Submit &raquo;" onclick="
+     <input type="button" value="Submit &raquo;" onClick="
       $(this).next().html( $(this.form).serialize() );
      "/>
      <span></span>
      <br/>
      By index:
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',0)" value="0"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',1)" value="1"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',2)" value="2"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',3)" value="3"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',4)" value="4"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',0)" value="0"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',1)" value="1"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',2)" value="2"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',3)" value="3"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',4)" value="4"/>
      eg.: $('input').rating('select',3)
      <br/>
      By value:
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="A"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="B"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="C"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="D"/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('select',this.value)" value="E"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',this.value)" value="A"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',this.value)" value="B"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',this.value)" value="C"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',this.value)" value="D"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('select',this.value)" value="E"/>
      eg.: $('input').rating('select','C')
     </form>
     
@@ -769,15 +776,15 @@ $(function(){
      <input type="radio" class="star {split:2}" name="api-readonly-test" value="8"/>
      <input type="radio" class="star {split:2}" name="api-readonly-test" value="9"/>
      <input type="radio" class="star {split:2}" name="api-readonly-test" value="10"/>
-     <input type="button" value="Submit &raquo;" onclick="
+     <input type="button" value="Submit &raquo;" onClick="
       $(this).next().html( $(this.form).serialize() );
      "/>
      <span></span>
      <br/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('readOnly',true)" value="Set readOnly = true"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('readOnly',true)" value="Set readOnly = true"/>
      eg.: $('input').rating('readOnly',true)
      <br/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('readOnly',false)" value="Set readOnly = false"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('readOnly',false)" value="Set readOnly = false"/>
      eg.: $('input').rating('readOnly',false) or simply $('input').rating('readOnly');
     </form>
     
@@ -803,15 +810,15 @@ $(function(){
      <input type="radio" class="star {split:2}" name="api-readonly-test" value="8"/>
      <input type="radio" class="star {split:2}" name="api-readonly-test" value="9"/>
      <input type="radio" class="star {split:2}" name="api-readonly-test" value="10"/>
-     <input type="button" value="Submit &raquo;" onclick="
+     <input type="button" value="Submit &raquo;" onClick="
       $(this).next().html( $(this.form).serialize() );
      "/>
      <span></span>
      <br/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('disable')" value="disable"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('disable')" value="disable"/>
      eg.: $('input').rating('disable')
      <br/>
-     <input type="button" onclick="javascript:$('input',this.form).rating('enable')" value="enable"/>
+     <input type="button" onClick="javascript:$('input',this.form).rating('enable')" value="enable"/>
      eg.: $('input').rating('enable');
     </form>
    </div><!--// tab-API //-->
@@ -819,7 +826,8 @@ $(function(){
    <div id="tab-Database">
     <h2>Database Integration</h2>
     <p>
-     I'm sorry to say that for the time being, <strong>this is up to you</strong> create the server-side code to
+     I'm sorry to say that for the time being, <strong>it is up to you</strong>
+     to create the server-side code that will
      process the form submission, store it somewhere (like a database) and do stuff with it -
      such as displaying averages and stop users from voting more than once.
     </p>
@@ -870,6 +878,19 @@ $(function(){
         v<strong>3.00</strong>
         <a href="http://jquery-star-rating-plugin.googlecode.com/svn/trunk/star-rating.zip"><strong>star-rating.zip</strong></a>
        </big>
+      </td>
+     </tr>
+     <tr>
+      <td valign="top" align="right"></td>
+      <td valign="top">
+       <div class="Clear" style="margin:0 0 10px 0;" onclick="$('a:eq(0)',this).click()">
+        <strong class="Yes" style="background:#090; color:#fff; padding:3px;">Stay up-to-date!</strong>
+        <span style="padding:3px;">
+         Major updates will be announced on
+         <a target="_blank" href="http://twitter.com/fyneworks" class="external">Twitter</a>
+         (<a target="_blank" href="http://twitter.com/fyneworks" class="external">http://twitter.com/fyneworks</a>)
+        </span>
+       </div>
       </td>
      </tr>
      <tr>
@@ -948,6 +969,19 @@ $(function(){
        <img src="/@/download.gif" style="margin:0 5px 5px 0; float:left;">
        v<strong>3.00</strong>
        <a href="star-rating.zip"><strong>star-rating.zip</strong></a>
+      </td>
+     </tr>
+     <tr>
+      <td valign="top" align="right"></td>
+      <td valign="top">
+       <div class="Clear" style="margin:0 0 10px 0;" onclick="$('a:eq(0)',this).click()">
+        <strong class="Yes" style="background:#090; color:#fff; padding:3px;">Stay up-to-date!</strong>
+        <span style="padding:3px;">
+         Major updates will be announced on
+         <a target="_blank" href="http://twitter.com/fyneworks" class="external">Twitter</a>
+         (<a target="_blank" href="http://twitter.com/fyneworks" class="external">http://twitter.com/fyneworks</a>)
+        </span>
+       </div>
       </td>
      </tr>
      <tr>

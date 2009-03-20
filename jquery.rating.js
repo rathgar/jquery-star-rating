@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v3.00 - 2009-03-16 ###
+ ### jQuery Star Rating Plugin v3.01 - 2009-03-20 ###
  * Home: http://www.fyneworks.com/jquery/star-rating/
  * Code: http://code.google.com/p/jquery-star-rating-plugin/
  *
@@ -53,20 +53,23 @@
 		// loop through each matched element
 		this.each(function(){
 			
-			// Generate internal control ID
-			// - ignore square brackets in element names
+			// Load control parameters / find context / etc
 			var eid = (this.name || 'unnamed-rating').replace(/\[|\]+/g, "_");
 			var context = $(this.form || document.body);
 			var raters = context.data('rating') || { count:0 };
 			var rater = raters[eid];
 			var control;
-			// ---------------
 			
-			if(rater){
-				control = rater.data('rating');
+			// if rater is available, verify that the control still exists
+			if(rater) control = rater.data('rating');
+			
+			if(rater && control){
+				// add star to control if rater is available and the same control still exists
 				control.count++;
 			}
 			else{
+				// create new control if first star or control element was removed/replaced
+				
 				// Initialize options for this raters
 				control = $.extend(
 					{}/* new object */,

@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v3.01 - 2009-03-20 ###
+ ### jQuery Star Rating Plugin v3.10 - 2009-03-21 ###
  * Home: http://www.fyneworks.com/jquery/star-rating/
  * Code: http://code.google.com/p/jquery-star-rating-plugin/
  *

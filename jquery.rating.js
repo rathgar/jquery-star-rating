@@ -285,7 +285,7 @@
 		readOnly: function(toggle, disable){ // make the control read-only (still submits value)
 			var control = this.data('rating'); if(!control) return this;
 			// setread-only status
-			control.readOnly = toggle ? true : false;
+			control.readOnly = toggle || toggle==undefined ? true : false;
 			// enable/disable control value submission
 			if(disable) $(control.inputs).attr("disabled", "disabled");
 			else     			$(control.inputs).removeAttr("disabled");

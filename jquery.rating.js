@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v3.10 - 2009-03-21 ###
+ ### jQuery Star Rating Plugin v3.10 - 2009-03-23 ###
  * Home: http://www.fyneworks.com/jquery/star-rating/
  * Code: http://code.google.com/p/jquery-star-rating-plugin/
  *
@@ -269,8 +269,6 @@
 				control.current = this[0].tagName=='INPUT' ? 
 				 this.data('rating.star') : 
 					(this.is('.rater-'+ control.serial) ? this : null);
-			
-			console.log(this[0].tagName, this);
 			
 			// Update rating control state
 			this.data('rating', control);

@@ -14,7 +14,7 @@
 /*# AVOID COLLISIONS #*/
 	
 	// IE6 Background Image Fix
-	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true)} catch(e) { }
+	if ($.browser.msie) try { document.execCommand("BackgroundImageCache", false, true)} catch(e) { };
 	// Thanks to http://www.visualjquery.com/rating/rating_redux.html
 	
 	// plugin initialization
@@ -335,7 +335,9 @@
 		The plugin will attach itself to file inputs
 		with the class 'multi' when the page loads
 	*/
-	$(function(){ $('input[type=radio].star').rating(); });
+	$(function(){
+	 $('input[type=radio].star').rating();
+	});
 	
 	
 	

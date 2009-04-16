@@ -1,5 +1,5 @@
 /*
- ### jQuery Star Rating Plugin v3.10 - 2009-03-23 ###
+ ### jQuery Star Rating Plugin v3.12 - 2009-04-16 ###
  * Home: http://www.fyneworks.com/jquery/star-rating/
  * Code: http://code.google.com/p/jquery-star-rating-plugin/
  *
@@ -43,6 +43,9 @@
 			options || {} /* just-in-time options */
 		);
 		
+		// Allow multiple controls with the same name by making each call unique
+		$.fn.rating.calls++;
+		
 		// loop through each matched element
 		this
 		 .not('.star-rating-applied')
@@ -50,21 +53,23 @@
 		.each(function(){
 			
 			// Load control parameters / find context / etc
-			var eid = (this.name || 'unnamed-rating').replace(/\[|\]+/g, "_");
+			var control, input = $(this);
+			var eid = (this.name || 'unnamed-rating').replace(/\[|\]/g, '_').replace(/^\_+|\_+$/g,'');
 			var context = $(this.form || document.body);
-			var input = $(this);
-			var raters = context.data('rating') || { count:0 };
+			
+			// FIX: http://code.google.com/p/jquery-star-rating-plugin/issues/detail?id=23
+			var raters = context.data('rating');
+			if(!raters || raters.call!=$.fn.rating.calls) raters = { count:0, call:$.fn.rating.calls };
 			var rater = raters[eid];
-			var control;
 			
 			// if rater is available, verify that the control still exists
 			if(rater) control = rater.data('rating');
 			
-			if(rater && control){
+			if(rater && control)//{// save a byte!
 				// add star to control if rater is available and the same control still exists
 				control.count++;
 				
-			}
+			//}// save a byte!
 			else{
 				// create new control if first star or control element was removed/replaced
 				
@@ -194,6 +199,9 @@
 		### Core functionality and API ###
 	*/
 	$.extend($.fn.rating, {
+		// Used to append a unique serial number to internal control ID
+		// each time the plugin is invoked so same name controls can co-exist
+		calls: 0,
 		
 		focus: function(){
 			var control = this.data('rating'); if(!control) return this;

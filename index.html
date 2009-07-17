@@ -9,7 +9,10 @@
 </div>
 
 <script language="javascript">
-window.location = "http://www.fyneworks.com/jquery/star-rating/";
+if(window.location.toString().match(/localhost/i))
+ window.location = 'index.asp';
+else
+ window.location = "http://www.fyneworks.com/jquery/star-rating/";
 </script>
 
 </body>

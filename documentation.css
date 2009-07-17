@@ -25,9 +25,9 @@ pre.code{
 	/* FIXED HEADER/FOOTER:	*/
 	#roof{ height:24px; position:fixed; width:100%; z-index:9999; left:0; top:0; }
 	#head{ height:30px; position:fixed; width:100%; z-index:9999; left:0; top:25px; }
-	#foot{ height:25px; position:fixed; width:100%; z-index:9999; left:0; bottom:0; }
-	#wrap{ padding:55px 0; }
-	#wrap{ padding:65px 0 !IE; }
+	#foot{ height:55px; position:fixed; width:100%; z-index:9999; left:0; bottom:0; }
+	#wrap{ padding:85px 0; }
+	#wrap{ padding:95px 0 !IE; }
 	html > body #roof{ height:14px; }
 }
 
@@ -49,7 +49,8 @@ pre.code{
 
 #body{ margin:10px; }
 
-#ad{ position:absolute; right:0; background:#090; width:160px; padding:5px; margin:5px 0 0 0; }
+#ad{ position:absolute; right:0; background:#090; padding:5px; margin:5px 0 0 0; width:160px !important; overflow:hidden !important; }
+#ad iframe{ width:160px !important; overflow:hidden !important; }
 #documentation{ margin-right:170px; }
 
 #search{ text-align:right; padding:0; margin:5px 0; border:0; display:inline; clear:none; width:200px; }
